@@ -1,0 +1,40 @@
+/* Portfolio layout using Flexbox */
+/* Desktop / wide screens */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; line-height: 1.4; }
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* vertical centering */
+  padding: 18px 24px;
+  background: #f3f4f6;
+}
+
+/* brand left, nav right */
+.brand { font-weight: 700; font-size: 1.25rem; }
+.nav a { margin-left: 16px; text-decoration: none; color: #111; }
+
+/* Main: side-by-side with equal height via align-items center */
+.main {
+  display: flex;
+  gap: 24px;
+  padding: 36px;
+  align-items: center; /* centers both sections vertically */
+  justify-content: center; /* centers horizontally */
+}
+
+/* About and photo styles */
+.about { flex: 1 1 400px; min-width: 220px; }
+.photo { flex: 1 1 320px; display:flex; align-items:center; justify-content:center; }
+.photo img { max-width:100%; height:auto; border-radius:6px; }
+
+/* Footer centered */
+.site-footer { text-align:center; padding: 14px 0; background:#fff; }
+
+/* Responsive: stack vertically below 700px */
+@media (max-width:700px) {
+  .main { flex-direction: column; padding:20px; }
+  .nav { margin-top:8px; }
+  .nav a { margin-left: 12px; }
+}
