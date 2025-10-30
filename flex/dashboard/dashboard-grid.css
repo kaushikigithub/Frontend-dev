@@ -1,0 +1,61 @@
+/* Dashboard layout using CSS Grid */
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, Arial, sans-serif; background:#f8fafc; padding:16px; }
+
+/* grid container: 3 columns (sidebar + content) */
+.dashboard {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar content";
+  gap: 18px;
+}
+
+/* header spans top */
+.header { grid-area: header; background:#fff; padding:14px 18px; border-radius:8px; }
+
+/* sidebar on left */
+.sidebar { grid-area: sidebar; background:#fff; padding:18px; border-radius:8px; }
+.sidebar nav a { display:block; margin:8px 0; text-decoration:none; }
+
+/* main content area */
+.content {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: minmax(120px, auto);
+  gap: 14px;
+}
+
+/* make second card span two columns */
+.content .card:nth-child(2) { grid-column: span 2; }
+
+/* card hover effect */
+.card {
+  background:#fff;
+  padding:16px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(2,6,23,0.08);
+}
+
+/* Responsive: collapse to single column under 800px */
+@media (max-width: 800px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "content";
+  }
+  .content { grid-template-columns: 1fr; }
+  .content .card:nth-child(2) { grid-column: auto; }
+}
