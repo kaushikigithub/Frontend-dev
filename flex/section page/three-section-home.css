@@ -1,0 +1,42 @@
+/* 3-section homepage layout using Flexbox */
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, Arial, sans-serif; min-height:100vh; display:flex; flex-direction:column; }
+
+/* Header - navigation spaced around */
+.header { background:#f4f6f8; padding: 12px 20px; }
+.nav { display:flex; justify-content:space-around; align-items:center; }
+.nav a { text-decoration:none; color:#111; padding:6px 10px; }
+
+/* Main boxes horizontally aligned */
+.main {
+  display:flex;
+  gap:18px;
+  padding: 40px 20px;
+  justify-content: center;
+  align-items: stretch; /* equal height */
+  flex:1;
+}
+
+/* Individual box style */
+.box {
+  flex: 1 1 220px;
+  background:#fff;
+  border-radius:8px;
+  padding: 28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition: transform 0.25s ease;
+}
+
+/* Hover rotate slightly */
+.box:hover { transform: rotate(2deg); }
+
+/* Footer stays at bottom and spans full width */
+.footer { background:#f1f1f1; text-align:center; padding:12px 0; }
+
+/* Small screens: stack boxes vertically but keep balance */
+@media (max-width:700px) {
+  .main { flex-direction: column; padding: 20px; }
+}
