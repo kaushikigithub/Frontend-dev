@@ -1,0 +1,29 @@
+/* Three-circle loader centered with Flexbox */
+* { box-sizing: border-box; }
+body { margin:0; height:100vh; display:flex; align-items:center; justify-content:center; background:#fafafa; font-family:system-ui; }
+
+.loader {
+  display:flex;
+  gap:14px;
+  align-items:flex-end; /* baseline for translateY motion */
+}
+
+/* circle base */
+.dot {
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#0b6dff;
+  transform: translateY(0);
+  animation: bounce 0.9s ease-in-out infinite;
+}
+
+/* stagger start times */
+.dot1 { animation-delay: 0s; }
+.dot2 { animation-delay: 0.12s; }
+.dot3 { animation-delay: 0.24s; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
