@@ -1,0 +1,54 @@
+/* Pricing section using Flexbox with animation */
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, Arial, sans-serif; background:#f7f9fb; display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px; }
+
+/* fade-in animation */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(12px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+.pricing {
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  justify-content:center;
+  width:100%;
+  max-width:1000px;
+}
+
+/* card styles */
+.card {
+  background:#fff;
+  border-radius:10px;
+  padding:22px;
+  flex: 1;
+  min-width: 220px;
+  text-align:center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeUp 0.6s ease both;
+}
+
+/* staggered animation delays */
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.35s; }
+
+/* featured middle card slightly larger and highlighted */
+.featured {
+  transform: scale(1.03);
+  background:#f0fbf6;
+  padding:28px;
+}
+
+/* hover: cards rise up slightly */
+.card:hover { transform: translateY(-10px) scale(1.01); box-shadow: 0 14px 30px rgba(2,10,23,0.08); }
+
+/* price text */
+.price { font-weight:700; font-size:1.2rem; margin:12px 0; }
+
+/* Stack vertically below 750px */
+@media (max-width:750px) {
+  .pricing { flex-direction: column; align-items:stretch; }
+  .featured { transform: none; }
+}
